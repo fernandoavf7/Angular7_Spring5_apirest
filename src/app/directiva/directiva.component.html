@@ -1,0 +1,11 @@
+<button class="btn btn-info" type="button" name="button" (click)="onSetHabilitar()">{{habilitar==true?"Ocultar":"Mostrar"}}</button>
+
+<div class="card">
+  <div class="card-header">
+    Listado de cursos
+  </div>
+
+  <ul class="list-group" *ngIf="habilitar==true">
+    <li class="list-group-item" *ngFor="let curso of listaCurso">{{curso}}</li>
+  </ul>
+</div>
