@@ -13,6 +13,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormComponent } from './clientes/form.component';
 //importa formulario
 import {FormsModule} from '@angular/forms';
+import { MascotasComponent } from './mascotas/mascotas.component';
+import { FormMascotaComponent } from './mascotas/form_mascota.component';
 
 //se crea un array de rutas para redireccionar las urls
 //por defecto o home redirije a clientes
@@ -21,10 +23,12 @@ const routes: Routes = [
   {path:'directivas', component: DirectivaComponent},
   {path:'clientes',  component: ClientesComponent},
   {path:'clientes/form', component:FormComponent},
-  {path:'clientes/form/:id', component:FormComponent}
+  {path:'clientes/form/:id', component:FormComponent},
+  //mascotas  {path:'', redirectTo: '/clientes',pathMatch: 'full'},
+    {path:'mascotas',  component: MascotasComponent},
+    {path:'mascotas/form', component:FormMascotaComponent},
+    {path:'mascotas/form/:id', component:FormMascotaComponent}
 ]
-
-
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ const routes: Routes = [
     FooterComponent,
     DirectivaComponent,
     ClientesComponent,
-    FormComponent
+    FormComponent,
+    MascotasComponent,
+    FormMascotaComponent
   ],
   imports: [
     BrowserModule,
