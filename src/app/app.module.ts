@@ -9,6 +9,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import {ClienteService} from './clientes/cliente.service';
 //se importan RouterModule y routes para hacer el redireccionamiento
 import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 //se crea un array de rutas para redireccionar las urls
 //por defecto o home redirije a clientes
@@ -30,6 +31,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ClienteService],
