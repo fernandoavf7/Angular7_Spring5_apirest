@@ -6,28 +6,35 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
-import {ClienteService} from './clientes/cliente.service';
+import { ClienteService } from './clientes/cliente.service';
 //se importan RouterModule y routes para hacer el redireccionamiento
-import {RouterModule, Routes} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './clientes/form.component';
 //importa formulario
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MascotasComponent } from './mascotas/mascotas.component';
 import { FormMascotaComponent } from './mascotas/form_mascota.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { FormVehiculoComponent } from './vehiculos/form-vehiculo/form-vehiculo.component';
 
 //se crea un array de rutas para redireccionar las urls
 //por defecto o home redirije a clientes
 const routes: Routes = [
-  {path:'', redirectTo: '/clientes',pathMatch: 'full'},
-  {path:'directivas', component: DirectivaComponent},
-  {path:'clientes',  component: ClientesComponent},
-  {path:'clientes/form', component:FormComponent},
-  {path:'clientes/form/:id', component:FormComponent},
-  //mascotas  {path:'', redirectTo: '/clientes',pathMatch: 'full'},
-    {path:'mascotas',  component: MascotasComponent},
-    {path:'mascotas/form', component:FormMascotaComponent},
-    {path:'mascotas/form/:id', component:FormMascotaComponent}
+  { path: '', redirectTo: '/clientes', pathMatch: 'full' },
+  { path: 'directivas', component: DirectivaComponent },
+  //clientes
+  { path: 'clientes', component: ClientesComponent },
+  { path: 'clientes/form', component: FormComponent },
+  { path: 'clientes/form/:id', component: FormComponent },
+  //mascotas  
+  { path: 'mascotas', component: MascotasComponent },
+  { path: 'mascotas/form', component: FormMascotaComponent },
+  { path: 'mascotas/form/:id', component: FormMascotaComponent },
+  //vehiculo routes
+  { path: 'vehiculos', component: VehiculosComponent },
+  { path: 'vehiculos/form', component: FormVehiculoComponent },
+  { path: 'vehiculos/form/:id', component: FormVehiculoComponent },
 ]
 
 @NgModule({
@@ -39,7 +46,9 @@ const routes: Routes = [
     ClientesComponent,
     FormComponent,
     MascotasComponent,
-    FormMascotaComponent
+    FormMascotaComponent,
+    VehiculosComponent,
+    FormVehiculoComponent
   ],
   imports: [
     BrowserModule,

@@ -3,32 +3,32 @@
   <div class="card-body text-primary">
     <h5 class="card-title">Listado de Mascotas</h5>
 
-<div>
-  <!--debe estar la ruta registrada en routes para usar routesLink-->
-  <button class="btn btn-rounded btn-primary" type="button" [routerLink] = "['/mascotas/form']">Crear Mascota</button>
-</div>
+    <div>
+      <!--debe estar la ruta registrada en routes para usar routesLink-->
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/mascotas/form']">Crear Mascota</button>
+    </div>
 
-<br>
+    <br>
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <th>id</th>
-    <th>nombre</th>
-    <th>fecha nacimiento</th>
-    <th>Editar</th>
-    <th>Eliminar</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let mascota of mascotas">
-      <td>{{mascota.id}}</td>
-      <td>{{mascota.nombre}}</td>
-      <td>{{mascota.fecha_nacimiento}}</td>
-      <td><button class="btn btn-primary" type="button" name="button" [routerLink]="['/mascotas/form',mascota.id]">Editar</button></td>
-      <td><button class="btn btn-danger btn-sm" type="button" name="button" (click)="delete(mascota)">Eliminar</button></td>
-    </tr>
-  </tbody>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <th>id</th>
+        <th>nombre</th>
+        <th>fecha nacimiento</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mascota of mascotas">
+          <td>{{mascota.id}}</td>
+          <td>{{mascota.nombre}}</td>
+          <td>{{mascota.fecha_nacimiento}}</td>
+          <td><button class="btn btn-primary" type="button" name="button" [routerLink]="['/mascotas/form',mascota.id]">Editar</button></td>
+          <td><button class="btn btn-danger btn-sm" type="button" name="button" (click)="delete(mascota)">Eliminar</button></td>
+        </tr>
+      </tbody>
 
-</table>
+    </table>
 
   </div>
 </div>

@@ -23,8 +23,8 @@ export class MascotaService {
   }
 
 
-  createMascota(cliente: Mascota): Observable<Mascota> {
-    return this.http.post<Mascota>(this.urlEndPoint, cliente, { headers: this.httpHeaders })
+  createMascota(mascota: Mascota): Observable<Mascota> {
+    return this.http.post<Mascota>(this.urlEndPoint, mascota, { headers: this.httpHeaders })
   }
 
   getMascota(id): Observable<Mascota> {

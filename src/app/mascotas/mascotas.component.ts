@@ -33,7 +33,6 @@ export class MascotasComponent implements OnInit {
         console.log(mascota.id);
         this.mascotaService.deleteMascota(mascota.id).subscribe(
           response => {
-            //esto es para que desaparezca de la tabla el cliente eliminado
             this.mascotas = this.mascotas.filter(m => m !== mascota)
             swal.fire(
               'Eliminado!',
@@ -45,6 +44,6 @@ export class MascotasComponent implements OnInit {
 
       }
     })
-  }
+  }//end delete
 
-}
+}//end class

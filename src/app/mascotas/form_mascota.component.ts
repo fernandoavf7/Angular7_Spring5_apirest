@@ -11,8 +11,8 @@ import swal from 'sweetalert2';
 
 export class FormMascotaComponent implements OnInit {
 
-private titulo:string = "Crear Mascota";
-private mascota:Mascota = new Mascota();
+  public titulo:string = "Crear Mascota";
+  public mascota:Mascota = new Mascota();
 
   constructor(private mascotaService: MascotaService,
     private router:Router, private activatedRoute: ActivatedRoute) { }
@@ -36,7 +36,6 @@ private mascota:Mascota = new Mascota();
  create():void{
   //console.log("Clicked!");
   //console.log(this.mascota);
-  auxCliente:Mascota;
   this.mascotaService.createMascota(this.mascota)
   .subscribe(mascota => {
     //redirige
