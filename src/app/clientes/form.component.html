@@ -2,34 +2,72 @@
   <div class="card-header">{{titulo}}</div>
   <div class="card-body">
 
-    <form>
+    <!-- #clienteForm con ngForm se usa para validar que el formulario cumple con los required 
+    y con los maxlenghts, se coloca la comprobacion en los botones crear y actualziar-->
+    <form #clienteForm="ngForm">
 
       <div class="form-group row">
         <label for="" class="col-form-label col-sm-2"></label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre">
+          <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" required minlength="4"
+            maxlength=20 #nombre="ngModel">
+          <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <!--errores aparecen por el snippet de bootstrap, no los reconoce-->
+            <div *ngIf="nombre.errors.required">
+              Nombre es requerido
+            </div>
+
+            <div *ngIf="nombre.errors.minlength">
+              Nombre debe tener al menos 4 caracteres
+            </div>
+          </div>
+
         </div>
       </div>
 
       <div class="form-group row">
         <label for="" class="col-form-label col-sm-2"></label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido">
+          <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido" required minlength="4"
+            maxlength=20 #apellido="ngModel">
+          <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+            <!--errores aparecen por el snippet de bootstrap, no los reconoce-->
+            <div *ngIf="apellido.errors.required">
+              Nombre es requerido
+            </div>
+
+            <div *ngIf="apellido.errors.minlength">
+              Nombre debe tener al menos 4 caracteres
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="" class="col-form-label col-sm-2"></label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email">
+          <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email" required email #email="ngModel"
+            minlength="4" maxlength=50>
+          <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <!--errores aparecen por el snippet de bootstrap, no los reconoce-->
+            <div *ngIf="email.errors.required">
+              Email es requerido
+            </div>
+            <div *ngIf="email.errors.minlength">
+              Email debe tener al menos 4 caracteres
+            </div>
+            <div *ngIf="email.errors.email">
+              Email debe tener un formato válido
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="form-group row">
         <div class="col-xs-6">
-          <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!cliente.id else elseBlock">Crear</button>
+          <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!cliente.id else elseBlock" [disabled]="!clienteForm.valid">Crear</button>
           <ng-template #elseBlock>
-            <button class="btn btn-primary" role="button" (click)="update()">Editar</button>
+            <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!clienteForm.valid">Editar</button>
           </ng-template>
         </div>
       </div>
