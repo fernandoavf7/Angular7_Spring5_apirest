@@ -1,0 +1,7 @@
+<select [(ngModel)]="marcaSeleccionada" name="marca" class="form-control">
+  <option *ngFor="let marca of marcas"
+  [value]="marca.nombre" 
+  >{{marca.nombre}}</option>
+</select>
+
+

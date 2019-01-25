@@ -3,6 +3,8 @@ import { Vehiculo } from '../vehiculo';
 import { VehiculoService } from '../vehiculo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Marca } from 'src/app/helpers/marca';
+import { MarcaComponent } from 'src/app/helpers/dropdownlist/marca/marca.component';
 
 @Component({
   selector: 'app-form-vehiculo',
@@ -14,6 +16,7 @@ export class FormVehiculoComponent implements OnInit {
   public titulo:string = "Crear Vehículo";
   public vehiculo:Vehiculo = new Vehiculo();
 
+
   constructor(public vehiculoService: VehiculoService,
     public router: Router,public activatedRoute: ActivatedRoute) { }
 
@@ -23,6 +26,7 @@ export class FormVehiculoComponent implements OnInit {
   }
 
   cargarVehiculo():void{
+    //console.log("marcaSeleccionada: ");
     this.activatedRoute.params.subscribe(params =>{
       let id = params['id']
       if(id){

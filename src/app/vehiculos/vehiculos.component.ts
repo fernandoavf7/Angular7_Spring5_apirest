@@ -34,7 +34,7 @@ export class VehiculosComponent implements OnInit {
             this.vehiculos = this.vehiculos.filter(v => v !== vehiculo)
             Swal.fire(
               'Eliminado!',
-              'Se ha eliminado la mascota',
+              'Se ha eliminado el vehiculo',
               'success'
             )
           }

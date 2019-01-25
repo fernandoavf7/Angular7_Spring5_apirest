@@ -2,31 +2,32 @@
   <div class="card-header">{{titulo}}</div>
   <div class="card-body">
 
-  <form>
+    <form>
 
-    <div class="form-group row">
-      <label for="" class="col-form-label col-sm-2"></label>
-      <div class="col-sm-6">
-        <input type="text" class="form-control" [(ngModel)]="vehiculo.marca" name="nombre">
+      <div class="form-group row">
+        <label for="" class="col-form-label col-sm-2">Marca</label>
+        <div class="col-sm-6">
+          <ddl-marca></ddl-marca>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group row">
-      <label for="" class="col-form-label col-sm-2"></label>
-      <div class="col-sm-6">
-        <input type="text" class="form-control" [(ngModel)]="vehiculo.modelo" name="nombre">
+
+      <div class="form-group row">
+        <label for="" class="col-form-label col-sm-2">Modelo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="vehiculo.modelo" name="nombre">
+        </div>
       </div>
-    </div>
 
-<div class="form-group row">
-  <div class="col-xs-6">
-    <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!vehiculo.id else elseBlock">Crear</button>
-    <ng-template #elseBlock>
-      <button class="btn btn-primary" role="button" (click)="update()">Editar</button>
-      </ng-template>
-  </div>
-</div>
-  </form>
+      <div class="form-group row">
+        <div class="col-xs-6">
+          <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!vehiculo.id else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)="update()">Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
 
   </div>
 </div>

@@ -17,6 +17,7 @@ import { MascotasComponent } from './mascotas/mascotas.component';
 import { FormMascotaComponent } from './mascotas/form_mascota.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { FormVehiculoComponent } from './vehiculos/form-vehiculo/form-vehiculo.component';
+import { MarcaComponent } from './helpers/dropdownlist/marca/marca.component';
 
 //se crea un array de rutas para redireccionar las urls
 //por defecto o home redirije a clientes
@@ -48,7 +49,8 @@ const routes: Routes = [
     MascotasComponent,
     FormMascotaComponent,
     VehiculosComponent,
-    FormVehiculoComponent
+    FormVehiculoComponent,
+    MarcaComponent
   ],
   imports: [
     BrowserModule,
