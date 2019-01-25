@@ -10,8 +10,8 @@ import swal from 'sweetalert2';
 })
 export class FormComponent implements OnInit {
 
-private titulo:string = "Crear Cliente";
-private cliente:Cliente = new Cliente();
+public titulo:string = "Crear Cliente";
+public cliente:Cliente = new Cliente();
 
   constructor(private clienteService: ClienteService,
     private router:Router, private activatedRoute: ActivatedRoute) { }
@@ -31,7 +31,7 @@ private cliente:Cliente = new Cliente();
   }
 
 
-
+//create utiliza una 2da manera transformando el objeto response con <string, object> en solo objeto cliente
  create():void{
   //console.log("Clicked!");
   //console.log(this.cliente);
@@ -40,19 +40,23 @@ private cliente:Cliente = new Cliente();
   .subscribe(cliente => {
     //redirige
   this.router.navigate(['/clientes'])
-  //muestra mensaje de exito
-  swal.fire('Nuevo cliente', `Cliente ${cliente.nombre} creado con éxito`,'success')
+  //muestra mensaje de exito, ejemplo con objeto any 1
+  //swal.fire('Nuevo cliente', `Cliente ${json.cliente.nombre} creado con éxito`,'success')
+  //ejemplo con objeto any 2, retornando el mensaje desde el backend spring
+  swal.fire('Nuevo cliente', `${cliente.nombre} : ${cliente.apellido}`,'success')
   }
   );
   //tambien puede ir abajo pero no recibirá el parametro cliente
     //swal.fire('Nuevo cliente', `Cliente creado con éxito`,'success')
 }//end method
 
+
 update():void{
   this.clienteService.update(this.cliente)
-  .subscribe(cliente => {
+  .subscribe(json => {
+    console.log(json);
     this.router.navigate(['/clientes'])
-    swal.fire("Cliente actualizado",`${cliente.nombre} actualizado con éxito!`, "success")
+    swal.fire("Cliente actualizado",`El cliente: ${json.cliente.nombre} actualizado con éxito!`, "success")
   })
 }
 

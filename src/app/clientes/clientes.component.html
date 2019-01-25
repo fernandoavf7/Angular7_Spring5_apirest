@@ -10,7 +10,11 @@
 
 <br>
 
-<table class="table table-bordered table-striped">
+<div *ngIf="clientes?.length==0" class="alert alert-info">
+    No hay registros para mostrar
+</div>
+
+<table class="table table-bordered table-striped" *ngIf="clientes?.length>0">
   <thead>
     <th>id</th>
     <th>nombre</th>

@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* se agrega estilo para que o se rompa el estilo con una tabla con muchos registros */
+html{
+    position:relative;
+    min-height: 100%;
+}
+
+body{
+margin-bottom: 60px;
+}
+
+.wrap{
+    padding-bottom: 60px;
+}
